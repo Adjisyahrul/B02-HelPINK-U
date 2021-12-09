@@ -24,7 +24,7 @@ Aplikasi pendataan mahasiswa terkena covid
 **HelPINK U** mewadahi mahasiswa yang terkena COVID-19 untuk meminta dan menerima bantuan penanganan lebih lanjut. Selain itu, terdapat opsi bagi mereka yang ingin memberi bantuan berupa dana yang nantinya akan kami salurkan baik dengan uang maupun obat-obatan. Website ini juga menerima permintaan bantuan tempat untuk isolasi mandiri dan permintaan bantuan penanganan dari RSUI. Nantinya, pengumpulan dana akan dilakukan oleh pemberi bantuan dan tindak lanjut akan permintaan bantuan dilakukan oleh fakultas selaku admin.
 
 ## Fitur
-1. Masuk
+### Masuk
 Fitur ini membuat halaman login dan landing page untuk masing-masing jenis pengguna.
 - **Penyusun** = Omarenzo Zafira Thahir
 - **Detail implementasi** =
