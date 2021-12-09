@@ -52,6 +52,7 @@ Pada implementasinya di mobile app, pada page saran, akan terdapat form dengan i
 Fitur ini membuat form dari Mahasiswa Fasilkom yang berisi latar belakang dari pengajuan yang dilakukan oleh Mahasiswa Fasilkom.
 - **Penyusun** = Irham Wahyu Arieffadhila
 - **Detail implementasi** =
+Implementasi fitur ini utamanya akan menggunakan widget untuk membuat form yang akan mengisi nama pengaju, tipe pengajuan, latar belakang pengajuan, lokasi pengajuan serta status pengaju. Bagian nama, latar belakang, serta lokasi akan menggunakan `TextFormField` agar dapat diisi dan untuk status pengaju serta tipe pengajuan akan menggunakan opsi radio yang terdapat pilihan status serta tipe pengajuan yang diinginkan. Selanjutnya juga akan mengimplementasikan `EvelatedButton` agar setelah user mengisi form dapat melakukan submit dengan menekan tombol bertuliskan submit. Ketika user selesai memberikan form maka akan terlihat “Data Telah Tersimpan” dengan menggunakan snackbar.
 
 ### 6. Dana
 Fitur ini membuat form pengisian dana, daftar pilihan rekening, dan menampilkan data-data tersebut di page admin.
