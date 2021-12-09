@@ -39,7 +39,7 @@ Pada fitur profil, terdapat dua halaman di mobile app, yaitu halaman edit profil
 ### 3. Daftar
 Fitur ini membuat form akun login untuk masing-masing jenis pengguna.
 - **Penyusun** = Muhammad Syahrul Adji
-- **Detail implementasi** : 
+- **Detail implementasi** =
 Pada modul daftar ini terdapat beberapa widget `Text` dalam child `Form` untuk memasukkan email, username, serta password. Data yang dimasukkan pada textField tersebut telah diintegrasikan pada Django admin website aplikasi HelPINK-U. Setelah beberapa widget Text yang disusun berdasarkan listView, terdapat widget `radioButton` untuk memilih role dari pengguna yang ingin mendaftar. Role tersebut terdiri dari pengaju dan penerima yang akan menjadi syarat autentikasi dalam login untuk memunculkan berbagai halaman yang telah diizinkan berdasarkan role yang telah dipilih. Jika proses daftar gagal akan mengirimkan pesan gagal mendaftar sesuai dengan widget `Text`-nya masing-masing dan jika berhasil akan mengirimkan data yang telah dimasukkan yang akan ditampilkan setelah klik tombol daftar.
 
 ### 4. Saran
@@ -50,22 +50,22 @@ Pada implementasinya di mobile app, pada page saran, akan terdapat form dengan i
 
 ### 5. Pengajuan isolasi, pengajuan dana & bantuan penanganan medis
 Fitur ini membuat form dari Mahasiswa Fasilkom yang berisi latar belakang dari pengajuan yang dilakukan oleh Mahasiswa Fasilkom.
-- **Penyusun** : Irham Wahyu Arieffadhila
-- **Detail implementasi** :
+- **Penyusun** = Irham Wahyu Arieffadhila
+- **Detail implementasi** =
 
 ### 6. Dana
 Fitur ini membuat form pengisian dana, daftar pilihan rekening, dan menampilkan data-data tersebut di page admin.
-- **Penyusun** =
-- **Detail implementasi** :
+- **Penyusun** = Nafidz Abiyyu Hanief
+- **Detail implementasi** =
 Implementasi awal menggunakan widget yang akan me return sebuah form dengan 3 `TextFormField` dan 3 `ListTile`. `TextFormField` terdiri dari request 2 text berisikan nama bank dan nomor rekening, kemudian 1 request jumlah donasi berupa angka. `ListTile` sebagai opsi radio yang berisikan `SingingCharacter` berupa opsi bank yang akan di transfer. Terdapat 3 opsi bank yaitu mandiri, BCA, dan BNI sehingga terdapat 3 ListTile untuk menampilkan masing-masing opsi. Kemudian terdapat button submit untuk memasukkan data yang sudah diinput. Response klik akan memunculkan snackbar dengan text ‘Processing Data’ sebagai tanda bahwa benar inputan sedang di proses ke database. 
 
 ### 7. Mengirim feedback status oleh admin
 Fitur ini membuat sistem pengiriman feedback status oleh admin berdasarkan pengajuan yang dilakukan pengaju bahwa telah disetujui ataupun ditolak.
-- **Penyusun** : Febrian Rayhan Aryadianto
-- **Detail implementasi** : 
+- **Penyusun** = Febrian Rayhan Aryadianto
+- **Detail implementasi** =
 Implementasi di mobile app akan terdapat beberapa halaman yang menampilkan fungsi seperti form pengisian data, edit form, delete form, dan halaman utama yang menampilkan data-data form feedback admin yang terdapat fungsi penyetujuan maupun penolakan. Untuk bagian tombol submisi, create, delete, dll. akan menggunakan widget `elevated/outlined button`. Selain itu, saat input telah diterima oleh aplikasi akan muncul sebuah teks ‘Data Telah `<insertuserhere>` Tersimpan’  dengan menggunakan widget `snackbar`. Untuk edit form dan pengisian data akan diimplementasikan widget `textformfield` untuk memunculkan kotak input tulisan. Untuk menampilkan data pada halaman utama, data yang telah disimpan dari database django akan connect atau implementasikan pada tabel data utama.
 
 ### 8. Landing Page (Fitur Tambahan)
-- **Detail implementasi** : 
+- **Detail implementasi** =
 Fitur ini akan menampilkan kumpulan tombol yang mengarahkan pengguna ke page-page yang ingin dikunjungi. Page ini akan tersusun atas widget `button`. Selain itu akan terdapat carousel berisi infografis mengenai helPINK U.
 
