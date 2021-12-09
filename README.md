@@ -4,8 +4,8 @@
 <!-- HelPINK U -->
 
 # Project UAS B02
-Link Github: `https://github.com/Adjisyahrul/B02-HelPINK-U`
-Link Download APK: `https://github.com/Adjisyahrul/B02-HelPINK-U/releases/tag/1.0.0%2B1`
+- Link Github: `https://github.com/Adjisyahrul/B02-HelPINK-U`
+- Link Download APK: `https://github.com/Adjisyahrul/B02-HelPINK-U/releases/tag/1.0.0%2B1`
 
 ## Anggota kelompok B02
 
