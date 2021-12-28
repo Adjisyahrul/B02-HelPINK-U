@@ -77,7 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title, style: const TextStyle(color: myColor2)),
       ),
-      body: const KritikAdmin() ,//FormSaran()
+      body: const FormSaran() ,//KritikAdmin()
       backgroundColor: myColor2
     );
   }
