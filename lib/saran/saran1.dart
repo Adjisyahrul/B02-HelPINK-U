@@ -1,13 +1,8 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:helpink_u/main.dart';
 import 'package:helpink_u/saran/model.dart';
 import 'package:provider/provider.dart';
 import 'repo.dart';
-
-
-
 
 class FormSaran extends StatefulWidget {
   const FormSaran({ Key? key }) : super(key: key);
@@ -19,18 +14,10 @@ class FormSaran extends StatefulWidget {
 class _FormSaranState extends State<FormSaran> {
 
   Repo repository = Repo();
-  
-  
 
-  // late String _role;
-  // late String _keluhan;
-  // late String _pesan;
-  // late String _rating;
-
-  String? _role;
+  
   String? _keluhan;
   String? _pesan;
-  String? _rating;
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   //final void Fun
@@ -42,48 +29,10 @@ class _FormSaranState extends State<FormSaran> {
   List<String> rate=["1", "2", "3" , "4", "5"];
   String _rateDef="5";
 
-  //TextEditingController kontrolRole = TextEditingController();
-  // TextEditingController kontrolKeluh = TextEditingController();
-  // TextEditingController kontrolPesan = TextEditingController();
-  //TextEditingController kontrolRate = TextEditingController();
-
-  void kirim(){
-    AlertDialog alert = AlertDialog(
-      content: Container(
-        height: 100.0,
-
-        child: Column(
-          children: <Widget>[
-            Text("Role    : $_role"),
-            Text("Keluhan : $_keluhan"),
-            Text("Pesan   : $_pesan"),
-            Text("Rate    : $_rating"),
-          ],
-        ),
-      ),
-    );
-    //showDialog(context: context, builder: alert);
-  }
-
-  // void _print(){
-  //   showDialog(
-  //       context: context, barrierDismissible: false,
-  //       builder: (BuildContext context) {
-  //         return new AlertDialog(
-  //           kiri
-  //         )
-  //   }
-  //   )
-  // }
-
-
-
-  void pilihRole(String value){
+    void pilihRole(String value){
     setState(() {
       _roleDef=value;
     });
-
-
   }
 
   void pilihRate(String value){
@@ -131,10 +80,8 @@ class _FormSaranState extends State<FormSaran> {
         _keluhan=value!;
       },
     );
-
-
   }
-  //
+  
   Widget _tempatPesan() {
     return TextFormField(
       //controller: kontrolPesan,
@@ -156,7 +103,7 @@ class _FormSaranState extends State<FormSaran> {
       },
     );
   }
-  //
+  
   Widget _tempatRating(){
     return Row(
       children:<Widget> [

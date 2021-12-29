@@ -1,4 +1,4 @@
-import 'dart:html';
+//import 'dart:html';
 
 import 'package:flutter/material.dart';
 
@@ -44,9 +44,6 @@ class Repo with ChangeNotifier{
       _saran= data.map<Model>((json) => Model.fromJson(json)).toList();
       notifyListeners();
       //print("keambil guys");
-    }
-    else{
-      print("ga keambil nih");
     }
   }
 

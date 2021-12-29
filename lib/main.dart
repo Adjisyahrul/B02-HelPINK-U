@@ -6,6 +6,10 @@ import 'package:provider/provider.dart';
 import 'package:http/http.dart';
 import 'saran/repo.dart';
 import 'saran/view_saran.dart';
+import 'package:helpink_u/home/carousel.dart';
+import 'package:helpink_u/home/home_admin.dart';
+import 'package:helpink_u/home/home_donatur.dart';
+import 'package:helpink_u/home/home_pengaju.dart';
 
 void main() {
   runApp(const MyApp());
@@ -74,10 +78,11 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const Drawer(),
       appBar: AppBar(
         title: Text(widget.title, style: const TextStyle(color: myColor2)),
       ),
-      body: const FormSaran() ,//KritikAdmin()
+      body: const HomeAdmin() ,//CarouselHome()HomeDonatur()HomePengaju()FormSaran()KritikAdmin()
       backgroundColor: myColor2
     );
   }
