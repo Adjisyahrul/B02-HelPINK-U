@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:helpink_u/saran/model.dart';
+
 import 'package:provider/provider.dart';
-import 'saran/saran1.dart';
-import 'package:provider/provider.dart';
-import 'package:http/http.dart';
 import 'saran/repo.dart';
 import 'saran/view_saran.dart';
 import 'package:helpink_u/home/carousel.dart';
@@ -33,36 +30,6 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-// class MyHomePage extends StatelessWidget {
-//   //MyHomePage(String s);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     final kritik = Provider.of<Repo>(context);
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text('HelPINK U'),
-//       ),
-//       body: ListView.builder(
-//         itemCount: kritik.saran.length,
-//         itemBuilder: (BuildContext context, int index){
-//           return ListTile(
-//             title: Text(kritik.saran[index].role),
-//             subtitle: Text(
-//               kritik.saran[index].keluhan+" \n"+
-//               kritik.saran[index].pesan+" \n"+
-//               kritik.saran[index].rating,
-//               style: const TextStyle(fontSize: 15, color: myColor1),
-//               ),
-            
-
-//           );
-//         }),
-//     );
-    
-//   }
-// }
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
