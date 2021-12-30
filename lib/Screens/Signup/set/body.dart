@@ -21,7 +21,7 @@ Future main() async {
 Future<http.Response> registFlutter(
     String username, String email, String password) {
   return http.post(
-    Uri.parse('/'),
+    Uri.parse('http://127.0.0.1:8000/daftar/flutterregist'),
     headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8'
     },
