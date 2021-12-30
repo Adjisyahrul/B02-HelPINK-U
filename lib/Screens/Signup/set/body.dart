@@ -1,8 +1,12 @@
+import 'dart:convert';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:helpink_u/Screens/Welcome/tampilan%20welcome.dart';
 import 'package:helpink_u/components/daftar_button.dart';
+import 'package:http/http.dart' as http;
+import 'dart:async';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -12,6 +16,21 @@ Future main() async {
   ]);
 
   runApp(Body());
+}
+
+Future<http.Response> registFlutter(
+    String username, String email, String password) {
+  return http.post(
+    Uri.parse('/'),
+    headers: <String, String>{
+      'Content-Type': 'application/json; charset=UTF-8'
+    },
+    body: jsonEncode(<String, String>{
+      'username': username,
+      'email': email,
+      'password': password,
+    }),
+  );
 }
 
 class Body extends StatelessWidget {
@@ -44,7 +63,7 @@ class _MainPageState extends State<MainPage> {
   String username = '';
   String email = '';
   String password = '';
-  int selected = 0;
+  int selected = 1;
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -98,7 +117,7 @@ class _MainPageState extends State<MainPage> {
         ),
       );
 
-  Widget buildText() => Text(
+  Widget buildText() => const Text(
         "DAFTAR AKUN",
         style: TextStyle(
           color: Colors.white,
@@ -119,9 +138,9 @@ class _MainPageState extends State<MainPage> {
             color: Colors.yellow[700],
           ),
 
-          border: OutlineInputBorder(
+          border: const OutlineInputBorder(
               borderSide: BorderSide(color: Color(0xFFC37B89))),
-          focusedBorder: OutlineInputBorder(
+          focusedBorder: const OutlineInputBorder(
             borderSide: BorderSide(color: Color(0xFFC37B89), width: 2),
           ),
           // errorBorder:
@@ -139,7 +158,7 @@ class _MainPageState extends State<MainPage> {
         },
         onSaved: (value) => setState(() => username = value),
       );
-  Widget buildText2() => Text(
+  Widget buildText2() => const Text(
         "Username hanya dapat terdiri dari huruf, angka, dan @/./+/-/_ saja",
         style: TextStyle(color: Colors.white, fontSize: 12),
       );
@@ -152,14 +171,14 @@ class _MainPageState extends State<MainPage> {
           fillColor: Colors.white,
           filled: true,
           hintText: "Email...",
-          border: OutlineInputBorder(
+          border: const OutlineInputBorder(
               borderSide: BorderSide(color: Color(0xFFC37B89))),
-          focusedBorder: OutlineInputBorder(
+          focusedBorder: const OutlineInputBorder(
             borderSide: BorderSide(color: Color(0xFFC37B89), width: 2),
           ),
         ),
         validator: (value) {
-          final pattern = r'(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)';
+          const pattern = r'(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)';
           final regExp = RegExp(pattern);
 
           if (value.isEmpty) {
@@ -183,9 +202,9 @@ class _MainPageState extends State<MainPage> {
           fillColor: Colors.white,
           filled: true,
           hintText: "Enter Password...",
-          border: OutlineInputBorder(
+          border: const OutlineInputBorder(
               borderSide: BorderSide(color: Color(0xFFC37B89))),
-          focusedBorder: OutlineInputBorder(
+          focusedBorder: const OutlineInputBorder(
             borderSide: BorderSide(color: Color(0xFFC37B89), width: 2),
           ),
         ),
@@ -200,19 +219,19 @@ class _MainPageState extends State<MainPage> {
         keyboardType: TextInputType.visiblePassword,
         obscureText: true,
       );
-  Widget buildText3() => Text(
+  Widget buildText3() => const Text(
         "     - password harus mengandung minimal setidaknya 8 karakter",
         style: TextStyle(color: Colors.white, fontSize: 12),
       );
-  Widget buildText4() => Text(
+  Widget buildText4() => const Text(
         "     - password tidak boleh mirip dengan data yang lain",
         style: TextStyle(color: Colors.white, fontSize: 12),
       );
-  Widget buildText5() => Text(
+  Widget buildText5() => const Text(
         "     - password tidak boleh yang sering digunakan",
         style: TextStyle(color: Colors.white, fontSize: 12),
       );
-  Widget buildText6() => Text(
+  Widget buildText6() => const Text(
         "     - password tidak boleh seluruhnya angka",
         style: TextStyle(color: Colors.white, fontSize: 12),
       );
@@ -225,9 +244,9 @@ class _MainPageState extends State<MainPage> {
           fillColor: Colors.white,
           filled: true,
           hintText: "Re-enter Password...",
-          border: OutlineInputBorder(
+          border: const OutlineInputBorder(
               borderSide: BorderSide(color: Color(0xFFC37B89))),
-          focusedBorder: OutlineInputBorder(
+          focusedBorder: const OutlineInputBorder(
             borderSide: BorderSide(color: Color(0xFFC37B89), width: 2),
           ),
         ),
@@ -242,12 +261,13 @@ class _MainPageState extends State<MainPage> {
         keyboardType: TextInputType.visiblePassword,
         obscureText: true,
       );
-  Widget buildText7() => Text(
+  Widget buildText7() => const Text(
         "Pilih Role:",
         style: TextStyle(
             color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold),
       );
   Widget customRadio(String text, int index) {
+    // ignore: deprecated_member_use
     return OutlineButton(
       onPressed: () {
         setState(() {
@@ -261,7 +281,7 @@ class _MainPageState extends State<MainPage> {
               (selected == index) ? Colors.lightBlue[800] : Colors.yellow[700],
         ),
       ),
-      color: Color(0xFFC37B89),
+      color: const Color(0xFFC37B89),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(3)),
       borderSide: BorderSide(
           color:
@@ -284,7 +304,7 @@ class _MainPageState extends State<MainPage> {
               final snackBar = SnackBar(
                 content: Text(
                   message,
-                  style: TextStyle(fontSize: 15),
+                  style: const TextStyle(fontSize: 15),
                 ),
                 backgroundColor: Colors.green,
               );
@@ -296,7 +316,7 @@ class _MainPageState extends State<MainPage> {
   Widget buildCek() => Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Text(
+          const Text(
             "Sudah punya akun ? ",
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
           ),
