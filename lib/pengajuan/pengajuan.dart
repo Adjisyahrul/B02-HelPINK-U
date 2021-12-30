@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class MyCustomForm extends StatefulWidget {
-  const MyCustomForm({Key? key}) : super(key: key);
+class FormPengajuan extends StatefulWidget {
+  const FormPengajuan({Key? key}) : super(key: key);
 
   @override
-  MyCustomFormState createState() {
-    return MyCustomFormState();
+  FormPengajuanState createState() {
+    return FormPengajuanState();
   }
 }
 
-class MyCustomFormState extends State<MyCustomForm> {
+class FormPengajuanState extends State<FormPengajuan> {
   String currentStatus = ' ';
   String currentPengajuan = ' ';
   final _formKey = GlobalKey<FormState>();
@@ -19,95 +19,126 @@ class MyCustomFormState extends State<MyCustomForm> {
     return Form(
       key: _formKey,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          
+          Container(
+            color: Colors.pink[200],
+            alignment: Alignment.center,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget> [
+                
+                Text(
+                  'Data Pengaju',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,)
+                  ),
 
-          TextFormField(
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Mohon isi dengan nama Anda';
-              }
-              return null;
-            },
-            decoration: const InputDecoration(
-                  hintText: 'Nama Lengkap',
-                  labelText: 'Nama',
-            ),
-          ),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    border: Border.all(
+                      width: 1,
+                    ),
+                    borderRadius: const BorderRadius.all(const Radius.circular(8)),
+                  ),
+                  constraints: BoxConstraints.tightForFinite(
+                    width: 500,
+                  ),
+                  child: Column(
+                    children: <Widget> [
+                      TextFormField(
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Mohon isi dengan nama Anda';
+                          }
+                        return null;
+                        },
+                        decoration: const InputDecoration(
+                          hintText: 'Nama Lengkap',
+                          labelText: 'Nama',
+                        ),
+                      ),
 
-          DropdownButtonFormField(
-            value: currentPengajuan,
-            items: <String>[' ', 'Isolasi', 'Permohonan Dana'].map<DropdownMenuItem<String>>((String tipePengajuan){
-              return DropdownMenuItem(
-                value: tipePengajuan,
-                child: Text(tipePengajuan),);
-            }).toList(),
-            onChanged: (String? newPengajuan){
-              setState((){
-                currentPengajuan = newPengajuan!;
-              });
-            },
-            decoration: const InputDecoration(
-                  labelText: 'Tipe Pengajuan',
-            ),
-          ),
+                      DropdownButtonFormField(
+                        value: currentPengajuan,
+                        items: <String>[' ', 'Isolasi', 'Permohonan Dana'].map<DropdownMenuItem<String>>((String tipePengajuan){
+                          return DropdownMenuItem(
+                            value: tipePengajuan,
+                            child: Text(tipePengajuan),);
+                        }).toList(),
+                        onChanged: (String? newPengajuan){
+                          setState((){
+                            currentPengajuan = newPengajuan!;
+                          });
+                        },
+                        decoration: const InputDecoration(
+                              labelText: 'Tipe Pengajuan',
+                        ),
+                      ),
 
-          TextFormField(
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Mohon isi alasan Anda';
-              }
-              return null;
-            },
-            decoration: const InputDecoration(
-                  hintText: 'Alasan Mengapa Melakukan Pengajuan',
-                  labelText: 'Latar',
-            ),
-          ),
-          
-          TextFormField(
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Mohon isi dengan alamat tempat tinggal Anda';
-              }
-              return null;
-            },
-            decoration: const InputDecoration(
-                  hintText: 'Lokasi Tempat Tinggal',
-                  labelText: 'Lokasi',
-            ),
-          ),
+                      TextFormField(
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Mohon isi alasan Anda';
+                          }
+                          return null;
+                        },
+                        decoration: const InputDecoration(
+                              hintText: 'Alasan Mengapa Melakukan Pengajuan',
+                              labelText: 'Latar',
+                        ),
+                      ),
+                      
+                      TextFormField(
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Mohon isi dengan alamat tempat tinggal Anda';
+                          }
+                          return null;
+                        },
+                        decoration: const InputDecoration(
+                              hintText: 'Lokasi Tempat Tinggal',
+                              labelText: 'Lokasi',
+                        ),
+                      ),
 
-          DropdownButtonFormField(
-            value: currentStatus,
-            items: <String>[' ', 'Pending', 'Accepted'].map<DropdownMenuItem<String>>((String status){
-              return DropdownMenuItem(
-                value: status,
-                child: Text(status),);
-            }).toList(),
-            onChanged: (String? newStatus){
-              setState((){
-                currentStatus = newStatus!;
-              });
-            },
-            decoration: const InputDecoration(
-                  labelText: 'Status',
-            ),
-          ),
-          
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 16.0),
-            child: ElevatedButton(
-              onPressed: () {
-                if (_formKey.currentState!.validate()) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Processing Data')),
-                  );
-                }
-              },
-              child: const Text('Submit'),
-            ),
+                      DropdownButtonFormField(
+                        value: currentStatus,
+                        items: <String>[' ', 'Pending', 'Accepted'].map<DropdownMenuItem<String>>((String status){
+                          return DropdownMenuItem(
+                            value: status,
+                            child: Text(status),);
+                        }).toList(),
+                        onChanged: (String? newStatus){
+                          setState((){
+                            currentStatus = newStatus!;
+                          });
+                        },
+                        decoration: const InputDecoration(
+                              labelText: 'Status',
+                        ),
+                      ),
+                      
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 16.0),
+                        child: ElevatedButton(
+                          onPressed: () {
+                            if (_formKey.currentState!.validate()) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(content: Text('Processing Data')),
+                              );
+                            }
+                          },
+                          child: const Text('Submit'),
+                        ),
+                      ),
+                      
+                    ],
+                  ),
+                ),
+            ],)
           ),
         ],
       ),
