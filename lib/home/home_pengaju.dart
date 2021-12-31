@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:helpink_u/main.dart';
 import 'carousel.dart';
 import 'package:helpink_u/saran/main_form_saran.dart';
+import 'package:helpink_u/pengajuan/pengajuan.dart';
 
 class HomePengaju extends StatefulWidget {
   const HomePengaju({ Key key }) : super(key: key);
@@ -30,7 +31,11 @@ class _HomePengajuState extends State<HomePengaju> {
                   margin: const EdgeInsets.all(15.0),
                   color: myColor1,
                   child: InkWell(
-                    //onTap: (),
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context){
+                        return FormPengajuan();
+                      }));
+                    },
                     splashColor: myColor1,
                     child: Center(
                       child: Column(

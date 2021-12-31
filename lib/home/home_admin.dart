@@ -5,6 +5,7 @@ import 'package:helpink_u/saran/view_saran.dart';
 import 'package:helpink_u/saran/saran1.dart';
 import 'package:helpink_u/saran/main_view_saran.dart';
 import 'package:helpink_u/saran/main_form_saran.dart';
+import 'package:helpink_u/feedback/feedbackutama.dart';
 
 class HomeAdmin extends StatefulWidget {
   const HomeAdmin({Key key}) : super(key: key);
@@ -33,7 +34,11 @@ class _HomeAdminState extends State<HomeAdmin> {
                   margin: const EdgeInsets.all(15.0),
                   color: myColor1,
                   child: InkWell(
-                    //onTap: (),
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context){
+                        return Feed();
+                      }));
+                    },
                     splashColor: myColor1,
                     child: Center(
                       child: Column(
