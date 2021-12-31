@@ -28,7 +28,7 @@ Future<http.Response> registFlutter(
     body: jsonEncode(<String, String>{
       'username': username,
       'email': email,
-      'password': password,
+      'password': password
     }),
   );
 }
@@ -298,6 +298,7 @@ class _MainPageState extends State<MainPage> {
 
             if (isValid) {
               formKey.currentState.save();
+              registFlutter(username, email, password);
 
               final message =
                   'Username: $username\nPassword: $password\nEmail: $email';
