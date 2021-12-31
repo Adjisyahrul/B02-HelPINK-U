@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:helpink_u/main.dart';
 import 'carousel.dart';
 import 'package:helpink_u/saran/main_form_saran.dart';
+import 'package:helpink_u/formulir_donasi/main_form_donasi.dart';
 
 class HomeDonatur extends StatefulWidget {
   const HomeDonatur({Key key}) : super(key: key);
@@ -31,6 +32,11 @@ class _HomeDonaturState extends State<HomeDonatur> {
                   color: myColor1,
                   child: InkWell(
                     //onTap: (),
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context){
+                        return const FormulirDonasi();
+                      }));
+                    },
                     splashColor: myColor1,
                     child: Center(
                       child: Column(
