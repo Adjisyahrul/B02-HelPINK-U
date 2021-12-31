@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import './apipengajuan.dart';
+import 'package:provider/provider.dart';
+import './model.dart';
 
 class FormPengajuan extends StatefulWidget {
   const FormPengajuan({Key? key}) : super(key: key);
@@ -12,10 +15,37 @@ class FormPengajuan extends StatefulWidget {
 class FormPengajuanState extends State<FormPengajuan> {
   String currentStatus = ' ';
   String currentPengajuan = ' ';
+
+  String? currentNama;
+  String? currentLatar;
+  String? currentLokasi;
   final _formKey = GlobalKey<FormState>();
+
+  List<String> tipePengajuan = [' ', 'Dana', 'Tempat Isolasi', 'Bantuan Medis'];
+  List<String> statusPengajuan = [' ', 'Diterima', 'Ditolak', 'Pending'];
+
+  void onAdd() {
+    final String namaFinal = currentNama!;
+    final String tipeFinal = currentPengajuan;
+    final String latarFinal = currentLatar!;
+    final String lokasiFinal = currentLokasi!;
+    final String statusFinal = currentStatus;
+
+    if (namaFinal.isNotEmpty && tipeFinal.isNotEmpty && latarFinal.isNotEmpty && lokasiFinal.isNotEmpty && statusFinal.isNotEmpty) {
+      final Model pengajuan = Model(
+        nama: namaFinal, 
+        tipePengajuan: tipeFinal, 
+        latar: latarFinal, 
+        lokasi: lokasiFinal, 
+        status: statusFinal
+        );
+      Provider.of<PengajuanProvider>(context, listen: false).tambahPengajuan(pengajuan);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
+    final pengajuanP = Provider.of<PengajuanProvider>(context);
     return Form(
       key: _formKey,
       child: Container(
@@ -58,6 +88,7 @@ class FormPengajuanState extends State<FormPengajuan> {
                     ),
                     child: Column(
                       children: <Widget> [
+                        
                         TextFormField(
                           validator: (value) {
                             if (value == null || value.isEmpty) {
@@ -73,10 +104,10 @@ class FormPengajuanState extends State<FormPengajuan> {
 
                         DropdownButtonFormField(
                           value: currentPengajuan,
-                          items: <String>[' ', 'Dana', 'Tempat Isolasi', 'Bantuan Medis'].map<DropdownMenuItem<String>>((String tipePengajuan){
+                          items: tipePengajuan.map<DropdownMenuItem<String>>((String tipePengajuanItem){
                             return DropdownMenuItem(
-                              value: tipePengajuan,
-                              child: Text(tipePengajuan),);
+                              value: tipePengajuanItem,
+                              child: Text(tipePengajuanItem),);
                           }).toList(),
                           onChanged: (String? newPengajuan){
                             setState((){
@@ -116,7 +147,7 @@ class FormPengajuanState extends State<FormPengajuan> {
 
                         DropdownButtonFormField(
                           value: currentStatus,
-                          items: <String>[' ', 'Diterima', 'Ditolak', 'Pending'].map<DropdownMenuItem<String>>((String status){
+                          items: statusPengajuan.map<DropdownMenuItem<String>>((String status){
                             return DropdownMenuItem(
                               value: status,
                               child: Text(status),);
@@ -134,11 +165,13 @@ class FormPengajuanState extends State<FormPengajuan> {
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 16.0),
                           child: ElevatedButton(
-                            onPressed: () {
+                            onPressed: () async {
                               if (_formKey.currentState!.validate()) {
+                                _formKey.currentState!.save();
                                 ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(content: Text('Processing Data')),
+                                  const SnackBar(content: Text('Permintaan dibuat...')),
                                 );
+                                onAdd();
                               }
                             },
                             child: const Text('Submit'),
