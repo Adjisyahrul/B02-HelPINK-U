@@ -6,12 +6,19 @@ import 'package:helpink_u/home/home_donatur.dart';
 import 'package:helpink_u/home/home_pengaju.dart';
 import 'package:helpink_u/Screens/Signup/tampilan_daftar.dart';
 
-// void main() {
-//   runApp(MaterialApp(
-//     title: "Login",
-//     home: LoginPage(),
-//   ));
-// }
+class LoginProvide extends StatelessWidget {
+  const LoginProvide({ Key key }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Provider(
+      create: (context) => NetworkService(),
+      child: const Scaffold(
+        body: LoginPage(),
+      ),
+    );
+  }
+}
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key key}) : super(key: key);
@@ -92,9 +99,9 @@ class _LoginPageState extends State<LoginPage> {
                             });
                           },
                           onSaved: (String value) {
-                            setState(() {
+                            //setState(() {
                               username = value;
-                            });
+                            
                           },
                           autovalidateMode: AutovalidateMode.onUserInteraction,
                           validator: (String value) {
@@ -122,9 +129,9 @@ class _LoginPageState extends State<LoginPage> {
                             });
                           },
                           onSaved: (String value) {
-                            setState(() {
+                            //setState(() {
                               password = value;
-                            });
+                            //});
                           },
                           autovalidateMode: AutovalidateMode.onUserInteraction,
                           validator: (String value) {
@@ -140,15 +147,11 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       Container(
                         width: 250,
-                        child: RaisedButton(
+                        child: ElevatedButton(
                           child: Text(
                             "Masuk",
                             style: TextStyle(color: Colors.orange),
                           ),
-                          color: Colors.white,
-                          shape: RoundedRectangleBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(30))),
                           onPressed: () async {
                             final response = await request.login(
                                 "http://127.0.0.1:8000/login/loginFlutter", {
@@ -167,19 +170,19 @@ class _LoginPageState extends State<LoginPage> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) =>
-                                            const HomePageDon()));
+                                            const HomeDonatur()));
                               } else if (request.group == "penerima") {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) =>
-                                            const HomePagePeng()));
+                                            const HomePengaju()));
                               } else {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) =>
-                                            const HomePagePeng()));
+                                            const HomeAdmin()));
                               }
                             } else {
                               ScaffoldMessenger.of(context)
