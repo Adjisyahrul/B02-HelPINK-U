@@ -1,7 +1,22 @@
 import 'package:flutter/material.dart';
-
+import 'package:provider/provider.dart';
+import 'repo.dart';
 import 'view_saran.dart';
 import 'package:helpink_u/main.dart';
+
+class SaranProvide extends StatelessWidget {
+  const SaranProvide({ Key? key }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ChangeNotifierProvider(
+      create: (context) => Repo(),
+      child: const Scaffold(
+        body: SaranTampil(),
+      ),
+    );
+  }
+}
 
 class SaranTampil extends StatefulWidget {
   const SaranTampil({Key? key}) : super(key: key);

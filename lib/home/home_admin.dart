@@ -73,7 +73,7 @@ class _HomeAdminState extends State<HomeAdmin> {
                   child: InkWell(
                     onTap: (){
                       Navigator.push(context, MaterialPageRoute(builder: (context){
-                        return SaranTampil();
+                        return SaranProvide();
                       }));
                     },
                     splashColor: myColor1,

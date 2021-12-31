@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:helpink_u/saran/main_view_saran.dart';
 
 import 'package:provider/provider.dart';
 import 'saran/repo.dart';
@@ -18,15 +19,12 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => Repo(),
-      child: MaterialApp(
-        title: 'HelPINK U',
-        theme: ThemeData(
-          primarySwatch: myColor1,
-        ),
-        home: MyHomePage(title: 'HelPINK U'),
+    return MaterialApp(
+      title: 'HelPINK U',
+      theme: ThemeData(
+        primarySwatch: myColor1,
       ),
+      home: MyHomePage(title: 'HelPINK U'),
     );
   }
 }
@@ -49,7 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title, style: const TextStyle(color: myColor2)),
       ),
-      body: const HomeAdmin() ,//CarouselHome()HomeDonatur()HomePengaju()FormSaran()KritikAdmin()
+      body: const HomeAdmin() ,//CarouselHome()HomeDonatur()FormSaran()KritikAdmin()HomePengaju()SaranProvide()
       backgroundColor: myColor2
     );
   }
