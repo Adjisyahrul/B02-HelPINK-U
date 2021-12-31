@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'api.dart';
-import 'model.dart';
+import 'package:helpink_u/formulir_donasi/model.dart';
 // import 'package:cool_alert/cool_alert.dart';
 // import 'package:helpink_u/dana/model.dart';
 

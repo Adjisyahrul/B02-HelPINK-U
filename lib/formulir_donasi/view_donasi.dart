@@ -19,7 +19,7 @@ class Donasi extends StatelessWidget {
       margin: const EdgeInsets.all(14),
       child: Column(
         children:<Widget> [
-          const Text("KRITIK DAN SARAN", style: TextStyle( fontSize: 30),),
+          const Text("Total Donasi", style: TextStyle( fontSize: 30),),
           const Padding(padding: EdgeInsets.only(top: 20.0)),
           Flexible(
             fit: FlexFit.tight,
@@ -30,7 +30,7 @@ class Donasi extends StatelessWidget {
                 return Card(
                   margin: const EdgeInsets.all(8),
                   child: ListTile(
-                    title: Text("Dana", style: const TextStyle(fontSize: 20)),
+                    title: Text("Donasi", style: const TextStyle(fontSize: 20)),
                     subtitle: Text(
                       "\nBank : "+dana.donasi[index].bank+"\n"+
                       "Nomor Rekening    : "+dana.donasi[index].norekening+"\n"+
