@@ -85,12 +85,15 @@ class _AddProfileState extends State<AddProfile> {
               controller: addressController,
             ),
             const SizedBox(height: 20),
-            RaisedButton(
-                color: myColor1,
-                child: Text('Submit'),
-                onPressed: () {
+            ElevatedButton(
+                onPressed: () async {
+                  if (!_formKey.currentState!.validate()) {
+                    return;
+                  }
+                  _formKey.currentState!.save();
                   onAdd();
-                })
+                },
+                child: const Text('Submit'))
           ],
         ),
       ),
