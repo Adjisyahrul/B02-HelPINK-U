@@ -177,7 +177,7 @@ class _LoginPageState extends State<LoginPage> {
                                     MaterialPageRoute(
                                         builder: (context) =>
                                             const HomePengaju()));
-                              } else {
+                              } else if (request.group == "admin"){
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
