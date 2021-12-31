@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:helpink_u/Screens/Signup/tampilan_daftar.dart';
 import 'package:helpink_u/Screens/Welcome/tampilan%20welcome.dart';
 import 'package:helpink_u/components/daftar_button.dart';
+import 'package:helpink_u/login/login.dart';
 
 class Body extends StatelessWidget {
   @override
@@ -63,7 +64,7 @@ class _MainPageState extends State<MainPage> {
               context,
               MaterialPageRoute(
                 builder: (context) {
-                  return WelcomeScreen();
+                  return const LoginPage();
                 },
               ),
             );

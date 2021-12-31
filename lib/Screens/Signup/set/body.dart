@@ -7,6 +7,7 @@ import 'package:helpink_u/Screens/Welcome/tampilan%20welcome.dart';
 import 'package:helpink_u/components/daftar_button.dart';
 import 'package:http/http.dart' as http;
 import 'dart:async';
+import 'package:helpink_u/login/login.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -328,7 +329,7 @@ class _MainPageState extends State<MainPage> {
                 context,
                 MaterialPageRoute(
                   builder: (context) {
-                    return WelcomeScreen();
+                    return const LoginPage();
                   },
                 ),
               );
