@@ -28,7 +28,8 @@ Future<http.Response> registFlutter(
     body: jsonEncode(<String, String>{
       'username': username,
       'email': email,
-      'password': password
+      'password': password,
+      'btnradio': 'pemberi'
     }),
   );
 }
