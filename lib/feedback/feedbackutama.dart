@@ -40,11 +40,11 @@ class Album {
   final String status;
 
   Album({
-    required this.nama, 
-    required this.latar, 
-    required this.lokasi, 
-    required this.status, 
-    required this.tipePengajuan
+     this.nama, 
+     this.latar, 
+     this.lokasi, 
+     this.status, 
+     this.tipePengajuan
   });
 
   factory Album.fromJson(Map<String, dynamic> json) {
@@ -64,14 +64,14 @@ List<Album> parseAlbum(String responseBody) {
 }
 
 class Feed extends StatefulWidget {
-  const Feed({Key? key}) : super(key: key);
+  const Feed({Key key}) : super(key: key);
 
   @override
   _FeedState createState() => _FeedState();
 }
 
 class _FeedState extends State<Feed> {
-  late Future<List<Album>> futureAlbum;
+   Future<List<Album>> futureAlbum;
 
   @override
   void initState() {
@@ -98,14 +98,14 @@ class _FeedState extends State<Feed> {
             builder: (context, snapshot) {
               if (snapshot.hasData) {
                 var list = <Widget>[];
-                for(int i = 0; i < snapshot.data!.length; i++) {
+                for(int i = 0; i < snapshot.data.length; i++) {
                   list.add(Container(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         
                         Text(
-                              snapshot.data![i].nama,
+                              snapshot.data[i].nama,
                               style: const TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.w600
@@ -116,7 +116,7 @@ class _FeedState extends State<Feed> {
                           child: Row(
                             children: [
                               const SizedBox(height: 10),
-                              Text(snapshot.data![i].lokasi + ' / ' + snapshot.data![i].latar + ' / ' + snapshot.data![i].status),
+                              Text(snapshot.data[i].lokasi + ' / ' + snapshot.data[i].latar + ' / ' + snapshot.data[i].status),
                               const SizedBox(width: 15),
 
                                GestureDetector(
@@ -128,7 +128,7 @@ class _FeedState extends State<Feed> {
                                     icon: Icon(Icons.delete, color: Colors.red),
                                     onPressed: () {
                                       setState(() {
-                                        futureAlbum = deleteAlbum(snapshot.data![i].nama.toString()) as Future<List<Album>>;
+                                        futureAlbum = deleteAlbum(snapshot.data[i].nama.toString()) as Future<List<Album>>;
                                       });
                                     },
                                     

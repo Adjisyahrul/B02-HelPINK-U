@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import './model.dart';
 
 class FormPengajuan extends StatefulWidget {
-  const FormPengajuan({Key? key}) : super(key: key);
+  const FormPengajuan({Key key}) : super(key: key);
 
   @override
   FormPengajuanState createState() {
@@ -16,19 +16,19 @@ class FormPengajuanState extends State<FormPengajuan> {
   String currentStatus = ' ';
   String currentPengajuan = ' ';
 
-  String? currentNama;
-  String? currentLatar;
-  String? currentLokasi;
+  String currentNama;
+  String currentLatar;
+  String currentLokasi;
   final _formKey = GlobalKey<FormState>();
 
   List<String> tipePengajuan = [' ', 'Dana', 'Tempat Isolasi', 'Bantuan Medis'];
   List<String> statusPengajuan = [' ', 'Diterima', 'Ditolak', 'Pending'];
 
   void onAdd() {
-    final String namaFinal = currentNama!;
+    final String namaFinal = currentNama;
     final String tipeFinal = currentPengajuan;
-    final String latarFinal = currentLatar!;
-    final String lokasiFinal = currentLokasi!;
+    final String latarFinal = currentLatar;
+    final String lokasiFinal = currentLokasi;
     final String statusFinal = currentStatus;
 
     if (namaFinal.isNotEmpty && tipeFinal.isNotEmpty && latarFinal.isNotEmpty && lokasiFinal.isNotEmpty && statusFinal.isNotEmpty) {
@@ -109,9 +109,9 @@ class FormPengajuanState extends State<FormPengajuan> {
                               value: tipePengajuanItem,
                               child: Text(tipePengajuanItem),);
                           }).toList(),
-                          onChanged: (String? newPengajuan){
+                          onChanged: (String newPengajuan){
                             setState((){
-                              currentPengajuan = newPengajuan!;
+                              currentPengajuan = newPengajuan;
                             });
                           },
                           decoration: const InputDecoration(
@@ -152,9 +152,9 @@ class FormPengajuanState extends State<FormPengajuan> {
                               value: status,
                               child: Text(status),);
                           }).toList(),
-                          onChanged: (String? newStatus){
+                          onChanged: (String newStatus){
                             setState((){
-                              currentStatus = newStatus!;
+                              currentStatus = newStatus;
                             });
                           },
                           decoration: const InputDecoration(
@@ -166,8 +166,8 @@ class FormPengajuanState extends State<FormPengajuan> {
                           padding: const EdgeInsets.symmetric(vertical: 16.0),
                           child: ElevatedButton(
                             onPressed: () async {
-                              if (_formKey.currentState!.validate()) {
-                                _formKey.currentState!.save();
+                              if (_formKey.currentState.validate()) {
+                                _formKey.currentState.save();
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   const SnackBar(content: Text('Permintaan dibuat...')),
                                 );

@@ -1,12 +1,12 @@
 class Model{
-  late final String nama;
-  late final String tipePengajuan;
-  late final String latar;
-  late final String lokasi;
-  late final String status;
+   final String nama;
+   final String tipePengajuan;
+   final String latar;
+   final String lokasi;
+   final String status;
 
   Model({
-    required this.nama, required this.tipePengajuan, required this.latar, required this.lokasi, required this.status
+    this.nama,  this.tipePengajuan,  this.latar, this.lokasi,  this.status
   });
 
   factory Model.fromJson(Map<String, dynamic> json){
