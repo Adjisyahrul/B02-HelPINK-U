@@ -172,6 +172,7 @@ class FormPengajuanState extends State<FormPengajuan> {
                                   const SnackBar(content: Text('Permintaan dibuat...')),
                                 );
                                 onAdd();
+                                Navigator.pop(context);
                               }
                             },
                             child: const Text('Submit'),
