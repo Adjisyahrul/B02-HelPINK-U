@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:helpink_u/formulir_donasi/main_view_donasi.dart';
 import 'package:helpink_u/main.dart';
 import 'carousel.dart';
 import 'package:helpink_u/saran/view_saran.dart';
@@ -6,6 +7,7 @@ import 'package:helpink_u/saran/saran1.dart';
 import 'package:helpink_u/saran/main_view_saran.dart';
 import 'package:helpink_u/saran/main_form_saran.dart';
 import 'package:helpink_u/feedback/feedbackutama.dart';
+
 
 class HomeAdmin extends StatefulWidget {
   const HomeAdmin({Key key}) : super(key: key);
@@ -58,6 +60,11 @@ class _HomeAdminState extends State<HomeAdmin> {
                   color: myColor1,
                   child: InkWell(
                     //onTap: (),
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context){
+                        return const IsiDonasi();
+                      }));
+                    },
                     splashColor: myColor1,
                     child: Center(
                       child: Column(

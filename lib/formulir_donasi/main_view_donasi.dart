@@ -4,8 +4,8 @@ import 'api.dart';
 import 'view_donasi.dart';
 import 'package:helpink_u/main.dart';
 
-class SaranProvide extends StatelessWidget {
-  const SaranProvide({ Key key }) : super(key: key);
+class IsiDonasi extends StatelessWidget {
+  const IsiDonasi({ Key key }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
