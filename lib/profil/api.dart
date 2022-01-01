@@ -27,7 +27,7 @@ class ProfileAPI with ChangeNotifier {
   }
 
   fetchProfil() async {
-    final url = 'http://127.0.0.1:8000/profil/jsonprofil';
+    final url = 'http://127.0.0.1:8000/profil/jsonprofil/?format=json';
     final response = await http.get(Uri.parse(url));
 
     if (response.statusCode == 200) {

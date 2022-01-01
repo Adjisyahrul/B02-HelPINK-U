@@ -7,6 +7,7 @@ import 'saran/main_form_saran.dart';
 import 'saran/main_form_saran.dart';
 import 'login/login.dart';
 import 'profil/drawer.dart';
+import 'profil/api.dart';
 
 void main() {
   runApp(const MyApp());
@@ -30,6 +31,9 @@ class MyApp extends StatelessWidget {
           primarySwatch: myColor1,
         ),
         home: MyHomePage(title: 'HelPINK U'),
+        routes: {
+          "/welcome": (BuildContext context) => WelcomeScreen(),
+        },
       ),
     );
   }
